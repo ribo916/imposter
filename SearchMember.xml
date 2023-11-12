@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<env:Envelope
+	xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
+	<env:Header/>
+	<env:Body>
+		<fis:Event_2100Response
+			xmlns:fis="FISERV.IS.PAS.EHPRMR.Runtime.WebService">
+			<!--Optional:-->
+			<fis:Event_2100Result>Search Response</fis:Event_2100Result>
+		</fis:Event_2100Response>
+	</env:Body>
+</env:Envelope>

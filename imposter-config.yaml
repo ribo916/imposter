@@ -1,0 +1,69 @@
+# imposter-config.yaml
+---
+plugin: soap
+wsdlFile: PorticoProd.wsdl
+
+resources:
+ # default response set by wsdl
+
+ # test static respponse hardcoded
+ - operation: Event_2100
+   requestBody:
+     xPath: "/SOAP-ENV:Envelope/SOAP-ENV:Body/ns1:Event_2100/ns1:requestXMLString"
+     value: "Test"
+     xmlNamespaces:
+       SOAP-ENV: "http://schemas.xmlsoap.org/soap/envelope/"
+       ns1: "FISERV.IS.PAS.EHPRMR.Runtime.WebService"
+   response:
+     statusCode: 200
+     headers:
+       Content-Type: application/xml
+     content: |
+       <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+         <soap:Body>
+           <response>Static Hardcoded Response</response>
+         </soap:Body>
+       </soap:Envelope>
+
+ # test static response from file
+ - operation: Event_2100
+   requestBody:
+     xPath: "/SOAP-ENV:Envelope/SOAP-ENV:Body/ns1:Event_2100/ns1:requestXMLString"
+     value: "Search"
+     xmlNamespaces:
+       SOAP-ENV: "http://schemas.xmlsoap.org/soap/envelope/"
+       ns1: "FISERV.IS.PAS.EHPRMR.Runtime.WebService"
+   response:
+    staticFile: SearchMember.xml
+    statusCode: 500
+
+ # test static respponse from file
+ - operation: Event_2100
+   requestBody:
+     xPath: "/SOAP-ENV:Envelope/SOAP-ENV:Body/ns1:Event_2100/ns1:requestXMLString"
+     value: "Fault"
+     xmlNamespaces:
+       SOAP-ENV: "http://schemas.xmlsoap.org/soap/envelope/"
+       ns1: "FISERV.IS.PAS.EHPRMR.Runtime.WebService"
+   response:
+    staticFile: SampleFault.xml
+    statusCode: 500
+
+ # TODO: trying to parse encoded xml
+ - operation: Event_2100
+   requestBody:
+     xPath: "/SOAP-ENV:Envelope/SOAP-ENV:Body/ns1:Event_2100/ns1:requestXMLString/IFX/SignonRq/SignonPswd/CustId/SPName"
+     value: "FISERV.COM"
+     xmlNamespaces:
+       SOAP-ENV: "http://schemas.xmlsoap.org/soap/envelope/"
+       ns1: "FISERV.IS.PAS.EHPRMR.Runtime.WebService"
+   response:
+     statusCode: 200
+     headers:
+       Content-Type: application/xml
+     content: |
+       <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+         <soap:Body>
+           <response>Parse the damn confusing encoded xml</response>
+         </soap:Body>
+       </soap:Envelope>

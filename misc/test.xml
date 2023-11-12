@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IFX xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SignonRq>
+    <SignonPswd>
+      <CustId>
+        <SPName>FISERV.COM</SPName>
+        <CustLoginId>DILL22222</CustLoginId>
+      </CustId>
+      <CustPswd>
+        <CryptType>NONE</CryptType>
+        <Pswd>eJGE}2d[0S?j(^7J</Pswd>
+      </CustPswd>
+    </SignonPswd>
+    <ClientDt>2023110918:01:13</ClientDt>
+    <CustLangPref>English</CustLangPref>
+    <ClientApp>
+      <Org>ILT</Org>
+      <Name>Allegro</Name>
+      <Version>1.0</Version>
+    </ClientApp>
+    <ProxyClient>
+      <Org></Org>
+      <Name></Name>
+      <Version></Version>
+    </ProxyClient>
+  </SignonRq>
+  <EDSPASRq>
+    <RqUID></RqUID>
+    <EDSPASData>
+      <Event>
+        <ECode>2100</ECode>
+        <EData>
+          <HostCommonArea>
+            <PremierCommon>
+              <StationID>22222EHI</StationID>
+              <UserID>22222EHI</UserID>
+              <CreditUnionID>22222</CreditUnionID>
+              <TellerID>1D</TellerID>
+              <TellerBranch>003</TellerBranch>
+            </PremierCommon>
+          </HostCommonArea>
+          <Request fctn="SearchForMember">
+            <SearchForMember>
+              <SearchType>SSN</SearchType>
+              <SearchValue>666760987</SearchValue>
+            </SearchForMember>
+          </Request>
+        </EData>
+      </Event>
+    </EDSPASData>
+  </EDSPASRq>
+</IFX>
