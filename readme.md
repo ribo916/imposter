@@ -1,6 +1,6 @@
-#Example using Imposter with Docker and a 3rd party wsdl from Portico
+# Example using Imposter with Docker and a 3rd party wsdl from Portico
 
-###General Steps
+### General Steps
 1. Create .yaml with .wsdl reference (resources is optional. sample response returned without matching)
   - Can reference hardcoded .xml files or hardcode responses in .yaml
 
@@ -10,7 +10,7 @@
 
 3. Now, you'll notice docker downloaded the outofcoffee docker image, and deployed our configured imposter to a container running on port 8080
 
-###Todo
+### Todo
 - How do we enhance our request body search to contend with encoded xml in the response element? regular expression possible?
 - Use the Portico .xsd files. The portico wsdl just lists methods, which is all I impored... although you can also try to import the separate xmls. Ours are old and unversioned and I saw some issues when I referenced them so skipping for Now
 
